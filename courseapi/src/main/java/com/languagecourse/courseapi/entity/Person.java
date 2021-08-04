@@ -17,7 +17,8 @@ public class Person {
     private String phoneNumber;
     private String email;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    //@ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     private Group groups;
 
 }

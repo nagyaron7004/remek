@@ -14,7 +14,8 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    @OneToMany
     private List<Person> persons;
 
 

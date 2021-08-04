@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// create empty group -
+// add person to group
+
+
 @RestController
 @RequestMapping("/group")
 public class GroupController {
@@ -35,6 +39,7 @@ public class GroupController {
     public Group update(@RequestBody Group group) {
         return groupService.update(group);
     }
+
 
 
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,7 +15,7 @@ public class Course {
     private Long id;
     private Language language;
     private Grade grade;
-    //
-     //private Person teacher; // by Person.id
 
+  /*  @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    private List<Group> groups;*/
 }

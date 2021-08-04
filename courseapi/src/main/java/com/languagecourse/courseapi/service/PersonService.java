@@ -21,7 +21,7 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public Person getPersonById(Long id) {
+    public Person getById(Long id) {
         if(personRepository.findById(id).isPresent()){
             return personRepository.getById(id);
         } else throw new IllegalArgumentException("id does not exist");

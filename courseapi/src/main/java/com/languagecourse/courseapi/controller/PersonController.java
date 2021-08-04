@@ -19,13 +19,13 @@ public class PersonController {
     @PostMapping
     public Person add(@RequestBody Person person) {
         return personService.add(person);
-}
+    }
     @GetMapping
     public List<Person> getAll() {return personService.getAll();}
 
     @GetMapping("/{id}")
-    public Person getPersonById(@PathVariable("id") Long id) {
-        return personService.getPersonById(id);
+    public Person getById(@PathVariable("id") Long id) {
+        return personService.getById(id);
     }
 
     @DeleteMapping("/{id}")

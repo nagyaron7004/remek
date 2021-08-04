@@ -1,0 +1,107 @@
+
+## File-based project format:
+*.iws
+# Java classes
+*.class
+
+# Folder config file
+[Dd]esktop.ini
+
+# Mongo Explorer plugin:
+.idea/**/mongoSettings.xml
+
+
+### Intellij+iml Patch ###
+# Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
+
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
+
+# IntelliJ
+/out/
+
+
+### Maven ###
+
+# Maven
+*.iml
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+## Plugin-specific files:
+
+# CMake
+cmake-build-debug/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# IntelliJ
+.idea/
+target/
+*.iml
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Property Files #
+*.properties
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# User-specific stuff:
+.idea/libraries/**
+.idea/sonarlint/**
+!.idea/runConfigurations/*
+
+
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/code-java,windows
+# End of https://www.gitignore.io/api/java,maven,intellij+iml

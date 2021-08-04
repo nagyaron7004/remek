@@ -12,20 +12,8 @@ public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    private Person member; // course member by Person.id
-    @ManyToOne
-    private Course course; // by Course.id
+
+    private String name;
 
 
-    @ManyToOne(optional = false)
-    private Course groups;
-
-    public Course getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Course groups) {
-        this.groups = groups;
-    }
 }

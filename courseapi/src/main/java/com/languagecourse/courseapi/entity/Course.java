@@ -12,10 +12,9 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Language language; //
-    @ManyToOne
-    private Person teacher; // by Person.id
+    private Language language;
+    private Grade grade;
+    //
+     //private Person teacher; // by Person.id
 
-    @OneToMany(mappedBy = "groups")
-    private Group group;
 }

@@ -18,6 +18,5 @@ public class Person {
     private String phoneNumber;
     private String email;
 
-    @ManyToOne
-    private Group group;
+
 }

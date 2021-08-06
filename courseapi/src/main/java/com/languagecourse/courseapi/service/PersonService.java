@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonService {
@@ -22,12 +23,13 @@ public class PersonService {
     }
 
     public Person getById(Long id) {
-        if(personRepository.findById(id).isPresent()){
-            return personRepository.getById(id);
-        } else throw new IllegalArgumentException("id does not exist");
+        Optional<Person> optionalPerson = personRepository.findById(id);
+        if (optionalPerson.isPresent()) return optionalPerson.get();
+        else throw new RuntimeException("Person does not exist");
     }
 
     public void deleteById(Long id) {
+
         personRepository.deleteById(id); // ha nincs ilyen id runtime error?
     }
 

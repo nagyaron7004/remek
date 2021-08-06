@@ -17,6 +17,4 @@ public class Group {
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
     @OneToMany
     private List<Person> persons;
-
-
 }

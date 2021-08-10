@@ -1,12 +1,16 @@
 package com.languagecourse.courseapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
-
+@Setter
+@Getter
 @Entity
-@Data
 public class Person {
 
     @Id
@@ -16,6 +20,10 @@ public class Person {
     private String name;
     private String phoneNumber;
     private String email;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "person")
+    private List<Group> groups;
 
 
 }

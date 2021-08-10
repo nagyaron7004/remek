@@ -1,14 +1,15 @@
 package com.languagecourse.courseapi.controller;
 
 import com.languagecourse.courseapi.entity.Group;
+import com.languagecourse.courseapi.entity.Person;
 import com.languagecourse.courseapi.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// create empty group -
-// add person to group
+//
+// getAllPersonByGroupId
 
 
 @RestController
@@ -39,7 +40,6 @@ public class GroupController {
     public Group update(@RequestBody Group group) {
         return groupService.update(group);
     }
-
 
 
 }

@@ -1,20 +1,26 @@
 package com.languagecourse.courseapi.entity;
 
-import lombok.Data;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
+@Setter
+@Getter
 @Entity
-@Data
+@NoArgsConstructor
+
+@Table(name = "group_table")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //private String name;
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
-    @OneToMany
-    private List<Person> persons;
+
+    @ManyToOne
+    private Person person;
+
+    @ManyToOne
+    private Course course;
 }

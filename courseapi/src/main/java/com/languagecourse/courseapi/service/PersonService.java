@@ -29,8 +29,11 @@ public class PersonService {
     }
 
     public void deleteById(Long id) {
-
-        personRepository.deleteById(id); // ha nincs ilyen id runtime error?
+        Optional<Person> optionalPerson = personRepository.findById(id);
+        if (optionalPerson.isPresent()){
+            personRepository.deleteById(id);
+        }
+        else throw new RuntimeException("Id does not exist");
     }
 
     public Person update(Person person) {

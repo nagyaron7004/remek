@@ -1,16 +1,10 @@
 package com.languagecourse.courseapi.controller;
 
 import com.languagecourse.courseapi.entity.Course;
-import com.languagecourse.courseapi.entity.Group;
 import com.languagecourse.courseapi.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
-//getAllPersonByCourseId
-//getAllGroupByCourseId
-
 
 @RestController
 @RequestMapping("/course")
@@ -22,8 +16,11 @@ public class CourseController {
     public Course add(@RequestBody Course course) {
         return courseService.add(course);
     }
+
     @GetMapping
-    public List<Course> getAll() {return courseService.getAll();}
+    public List<Course> getAll() {
+        return courseService.getAll();
+    }
 
     @GetMapping("/{id}")
     public Course getById(@PathVariable("id") Long id) {
@@ -31,7 +28,7 @@ public class CourseController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable ("id") Long id) {
+    public void deleteById(@PathVariable("id") Long id) {
         courseService.deleteById(id);
     }
 
@@ -39,11 +36,5 @@ public class CourseController {
     public Course update(@RequestBody Course course) {
         return courseService.update(course);
     }
-
-    @GetMapping("/{id}/groups")
-    public List<Group> getAllGroupByCourseId(@PathVariable("id") Long id) {
-        return courseService.getAllGroupByCourseId(id);
-    }
-
 
 }

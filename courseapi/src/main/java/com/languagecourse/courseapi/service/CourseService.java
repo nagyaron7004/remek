@@ -33,8 +33,4 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public List<Group> getAllGroupByCourseId(Long id) {
-    /*    List<Group> groups = courseRepository.findById(id).orElseThrow().getGroups();*/
-        return null;
-    }
 }

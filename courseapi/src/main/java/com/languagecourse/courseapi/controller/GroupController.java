@@ -1,15 +1,11 @@
 package com.languagecourse.courseapi.controller;
 
 import com.languagecourse.courseapi.entity.Group;
-import com.languagecourse.courseapi.entity.Person;
 import com.languagecourse.courseapi.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-//
-// getAllPersonByGroupId
 
 
 @RestController

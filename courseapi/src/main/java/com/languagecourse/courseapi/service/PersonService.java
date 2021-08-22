@@ -1,11 +1,15 @@
 package com.languagecourse.courseapi.service;
 
+import com.languagecourse.courseapi.entity.Group;
 import com.languagecourse.courseapi.entity.Person;
 import com.languagecourse.courseapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 public class PersonService {
@@ -35,7 +39,23 @@ public class PersonService {
         else throw new RuntimeException("Id does not exist");
     }
 
-    public Person update(Person person) {
-        return personRepository.save(person);
+    public Person updateById(Person person, long id) {
+        if (!personRepository.existsById(id)) {
+            return null;
+        }
+        Person PersonToUpdate = personRepository.getById(id);
+        PersonToUpdate.setAge(person.getAge());
+        PersonToUpdate.setEmail(person.getEmail());
+        PersonToUpdate.setName(person.getName());
+
+        return PersonToUpdate;
     }
+
+    public List<Group> getGroupByPersonId (long id) {
+        List<Group> groups = personRepository.findById(id).orElseThrow().getGroups();
+        return groups.stream().collect(Collectors.toList());
+    }
+
+
+
 }

@@ -1,7 +1,9 @@
 package com.languagecourse.courseapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
     @Id
@@ -16,7 +20,7 @@ public class Person {
     private Long id;
 
     private String name;
-    private String phoneNumber;
+    private int age;
     private String email;
 
     @JsonIgnore

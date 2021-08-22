@@ -1,14 +1,17 @@
 package com.languagecourse.courseapi.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 
 @Setter
 @Getter
 @Entity
-
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Table(name = "group_table")
 public class Group {

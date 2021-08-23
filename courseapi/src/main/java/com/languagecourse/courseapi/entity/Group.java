@@ -24,4 +24,13 @@ public class Group {
 
     @ManyToOne
     private Course course;
+
+
+    public void Group (Person person, Course course) {
+        this.person = person;
+        this.course = course;
+    };
 }
+
+
+

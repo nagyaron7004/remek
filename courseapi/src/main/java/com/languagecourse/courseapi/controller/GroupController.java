@@ -47,7 +47,7 @@ public class GroupController {
            return ResponseEntity.notFound().build();
        }
        log.info("Group found: " + id + "!");
-       return ResponseEntity.ok().build(); //groupService.getById(id);
+       return ResponseEntity.ok(group); //groupService.getById(id);
     }
 
     @DeleteMapping("/{id}")
@@ -64,9 +64,16 @@ public class GroupController {
 
     }
 
-    @PutMapping
-    public Group update(@RequestBody Group group) {
-        return groupService.update(group);
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody @Valid Group group, @PathVariable long id, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().build();
+        }
+        Group result = groupService.update(group, id);
+        if (result == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
     }
 
 

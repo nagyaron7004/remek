@@ -51,11 +51,15 @@ public class PersonService {
         return PersonToUpdate;
     }
 
+    public Person update (Person person) {
+        if (!personRepository.existsById(person.getId())){
+            return null;
+        }
+        return personRepository.save(person);
+    }
+
     public List<Group> getGroupByPersonId (long id) {
         List<Group> groups = personRepository.findById(id).orElseThrow().getGroups();
         return groups.stream().collect(Collectors.toList());
     }
-
-
-
 }

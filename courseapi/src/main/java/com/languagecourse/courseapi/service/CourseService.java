@@ -28,13 +28,14 @@ public class CourseService {
     }
 
     public void deleteById(Long id) {
-        if (courseRepository.existsById(id)){
+        if (courseRepository.existsById(id)) {
             courseRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Course not found: " + id + "!");
         }
-        throw new RuntimeException("Course not found: " + id + "!");
     }
 
-    public Course update(Course course) {
-        return courseRepository.save(course);
-    }
+        public Course update (Course course){
+            return courseRepository.save(course);
+        }
 }

@@ -28,11 +28,23 @@ public class GroupService {
     }
 
     public void deleteById(Long id) {
-        groupRepository.deleteById(id);
+        if(groupRepository.existsById(id)){
+            groupRepository.deleteById(id);
+        }else {
+            throw new RuntimeException("Id not found!");
+        }
     }
 
-    public Group update(Group group) {
-        return groupRepository.save(group);
+    public Group update(Group group, long id) {
+        if (!groupRepository.existsById(id)){
+            return null;
+        }
+        Group updatedGroup = getById(id);
+        updatedGroup.setId(id);
+        updatedGroup.setCourse(group.getCourse());
+        updatedGroup.setPerson(group.getPerson());
+        return updatedGroup;
+
     }
 
 }

@@ -29,4 +29,6 @@ public class Course {
     @JsonIgnore
     @OneToMany(mappedBy = "course")
     private List<Group> groups;
+
+
 }

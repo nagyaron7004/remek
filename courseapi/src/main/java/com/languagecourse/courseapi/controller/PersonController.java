@@ -74,6 +74,14 @@ public class PersonController {
         return ResponseEntity.ok(personService.updateById(person1, id));
     }
 
+    @PutMapping
+    public ResponseEntity<?> update (@RequestBody @Valid Person person, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(personService.update(person));
+    }
+
 
 
     @GetMapping("/{id}/groups")

@@ -2,6 +2,7 @@ package com.languagecourse.courseapi.integrationTestsController;
 
 
 import com.languagecourse.courseapi.entity.Person;
+import com.languagecourse.courseapi.service.PersonService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,18 @@ public class PersonIT {
         return new HttpEntity<>(testIngredient, headers);
     }
 
+    @Test
+    public void updatePerson_withPostedPerson_returnsUpdatedPerson () {
+        Person testPerson = new Person(null, "Jenő", 35, "jeno@dd.hu", null);
 
+        Person testPersonResult = testRestTemplate.postForObject(baseUrl, testPerson, Person.class);
+        testPerson.setName("Tódor-updated");
+        testRestTemplate.put(baseUrl + "/" + testPersonResult.getId(), testPerson);
+        Person updatedPerson = testRestTemplate.getForObject(baseUrl + "/" +
+                testPersonResult.getId(), Person.class);
+
+        assertEquals("Tódor-updated", updatedPerson.getName());
+    }
 
 
 }

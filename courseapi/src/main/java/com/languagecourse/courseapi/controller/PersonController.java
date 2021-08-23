@@ -63,7 +63,7 @@ public class PersonController {
         }
     }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateById(@PathVariable long id, BindingResult bindingResult) {
+    public ResponseEntity<?> updateById(@RequestBody @Valid Person person, @PathVariable  long id, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().build();
         }
